@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>UBICHAIN</title>
-  <meta name="description" content="新インターナショナル公約。OZ。国民所得保障。" />
+  <meta name="description" content="新インターナショナル公約。OZ。国民所得保障。ubi-chain.com 寄付募集。" />
   <meta name="theme-color" content="#020408" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -48,13 +48,28 @@
   <section id="home" class="on">
     <p class="kicker">スマホ版 · サイトアプリ</p>
     <p>新インターナショナルの公約と OZ の入口です。パスワードは使いません。ホーム画面に追加すると、初期アプリと同じ全画面になります。</p>
-    <p><button class="cta" type="button" onclick="go('install')">ホーム画面に追加</button></p>
+    <p><button class="cta" type="button" onclick="go('donate')">ドメイン寄付を募集</button></p>
     <div class="grid">
+      <a class="tile" href="#donate" onclick="go('donate')">寄付</a>
       <a class="tile" href="#oz" onclick="go('oz')">OZ</a>
       <a class="tile" href="#program" onclick="go('program')">公約</a>
       <a class="tile" href="#pay" onclick="go('pay')">振込</a>
     </div>
-    <p class="note">公開ホスト https://ubi-chain.github.io/ · ubi-chain.com は未登録</p>
+    <p class="note">公開中 https://ubi-chain.github.io/ · ubi-chain.com は未登録（年額 約11.25 USD）</p>
+  </section>
+  <section id="donate">
+    <h2>DONOR · ubi-chain.com</h2>
+    <p>UBICHAIN の正式ドメイン <strong>ubi-chain.com</strong> を買ってくださる寄付者を募集しています。</p>
+    <p>目的はドメイン取得の実費だけです。Vercel 引用は <strong>1年 11.25 USD</strong>（税・手数料別途）。生活費や不明な掲示金ではありません。</p>
+    <div class="grid">
+      <span class="tile">目標 $11.25 / 1年</span>
+      <span class="tile">状態 未登録</span>
+    </div>
+    <h2>やり方</h2>
+    <p>1. 自分の Vercel で <a href="https://vercel.com/domains/search?q=ubi-chain.com">ubi-chain.com を購入</a>し、ドメインを GitHub アカウント <code>ubi-chain</code> に移転する。</p>
+    <p>2. または購入後、SMS で始末を知らせる。</p>
+    <p><a class="cta" href="sms:+818057256673&body=%E3%80%90UBICHAIN%E5%AF%84%E4%BB%98%E3%80%91ubi-chain.com%20%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%E3%80%82">寄付の意向を SMS</a></p>
+    <p class="note">現在の無料公開先 https://ubi-chain.github.io/ · GitHub https://github.com/ubi-chain/ubichain</p>
   </section>
   <section id="oz">
     <h2>OZ</h2>
@@ -112,6 +127,7 @@
   <section id="pay">
     <h2>振込 · 080-5725-6673</h2>
     <p>提携サービスへの入金は、この番号から台帳へ入ります。実口座は動かしません。控えは SMS です。</p>
+    <p>ドメイン購入の寄付は <a href="#donate" onclick="go('donate')">寄付</a> を見てください。</p>
     <div class="grid">
       <span class="tile">保障準備金 ¥40,000</span>
       <span class="tile">Pay ¥12,000</span>
@@ -132,10 +148,10 @@
   </section>
   <nav class="dock">
     <a href="#home" onclick="go('home')">ホーム</a>
+    <a href="#donate" onclick="go('donate')">寄付</a>
     <a href="#oz" onclick="go('oz')">OZ</a>
     <a href="#program" onclick="go('program')">公約</a>
     <a href="#pay" onclick="go('pay')">振込</a>
-    <a href="#install" onclick="go('install')">追加</a>
   </nav>
   <script>
     function go(id) {
@@ -162,7 +178,7 @@
       box.textContent = name + " として広場に入りました。";
     }
     const start = (location.hash || "#home").slice(1);
-    go(["home","oz","program","pay","install"].includes(start) ? start : "home");
+    go(["home","donate","oz","program","pay","install"].includes(start) ? start : "home");
     if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
   </script>
 </body>
