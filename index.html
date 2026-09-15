@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UBICHAIN — ubichain.is-a.dev</title>
+  <meta name="description" content="UBICHAIN free hostname. CNAME to Vercel. Open-source PWA, no commercial activity." />
+  <link rel="icon" href="https://github.com/ubi-chain.png" />
+  <style>
+    :root { --bg:#020408; --fg:#c8e6f0; --dim:#7a9aaa; --muted:#3a6070; --accent:#00d4ff; --ok:#00ff88; --border:#0f2535; --surface:#070e16; --panel:#0a1520; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; background:var(--bg); color:var(--fg); font: 15px/1.5 "IBM Plex Sans", "Hiragino Sans", system-ui, sans-serif; }
+    body { min-height:100dvh; padding: 28px 18px 64px; }
+    main { max-width: 720px; margin: 0 auto; }
+    .kicker { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: .22em; color: var(--accent); }
+    h1 { font-size: 28px; font-weight: 600; margin: 8px 0 6px; }
+    p { color: var(--dim); }
+    a { color: var(--accent); }
+    .card { border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 16px 18px; margin-top: 14px; }
+    .row { display:flex; justify-content:space-between; gap:12px; padding: 10px 0; border-top: 1px solid var(--border); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; }
+    .row:first-child { border-top: 0; }
+    .label { color: var(--muted); }
+    .ok { color: var(--ok); }
+    code { color: var(--fg); }
+    .cta { display:inline-flex; align-items:center; height:44px; padding:0 16px; margin: 8px 8px 0 0; border-radius: 8px; background: var(--accent); color: var(--bg); text-decoration:none; font-weight:600; font-size: 13px; }
+    .cta.ghost { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="kicker">FREE HOSTNAME · VERCEL CNAME</div>
+    <h1>UBICHAIN</h1>
+    <p>Personal open-source PWA. Free hostname <code>ubichain.is-a.dev</code> CNAMEs to Vercel (<code>cname.vercel-dns.com</code>). Demo only — no ads, no real payments, no commercial use. <code>ubi-chain.com</code> is not registered (paid gTLD).</p>
+    <div class="card">
+      <div class="row"><span class="label">Free origin</span><span>ubichain.is-a.dev</span></div>
+      <div class="row"><span class="label">Record</span><span>CNAME cname.vercel-dns.com</span></div>
+      <div class="row"><span class="label">Pages</span><span class="ok">ubi-chain.github.io</span></div>
+      <div class="row"><span class="label">GitHub</span><span>ubi-chain</span></div>
+      <div class="row"><span class="label">Paid apex</span><span>ubi-chain.com · NXDOMAIN</span></div>
+    </div>
+    <p>Source and DNS database live in the GitHub repo. After is-a.dev merge, add <code>ubichain.is-a.dev</code> on the Vercel project (GitHub login) so TLS attaches.</p>
+    <a class="cta" href="https://github.com/ubi-chain/ubichain">DNS database</a>
+    <a class="cta ghost" href="https://github.com/is-a-dev/register">is-a.dev register</a>
+  </main>
+</body>
+</html>
