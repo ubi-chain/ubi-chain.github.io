@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>UBICHAIN</title>
-  <meta name="description" content="新インターナショナル公約。OZ。国民所得保障。ubi-chain.com 寄付募集。" />
+  <meta name="description" content="新インターナショナル公約。OZ。ubi-chain.com 寄付募集。" />
   <meta name="theme-color" content="#020408" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -30,7 +30,7 @@
     section.on { display:block; }
     h2 { font: 10px/1.2 ui-monospace,monospace; letter-spacing:.2em; color:var(--accent); margin:22px 0 8px; }
     p { color:var(--dim); margin:0 0 10px; }
-    .cta { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; background:var(--accent); color:var(--bg); text-decoration:none; font-weight:600; font-size:13px; border:0; }
+    .cta { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; background:var(--accent); color:var(--bg); text-decoration:none; font-weight:600; font-size:13px; border:0; margin:0 8px 8px 0; }
     input { width:100%; height:44px; margin:8px 0; padding:0 12px; background:var(--surface); border:1px solid var(--border); color:var(--fg); }
     .grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; }
     .tile { min-height:44px; border:1px solid var(--border); background:var(--surface); color:var(--fg); display:grid; place-items:center; font:11px/1.2 ui-monospace,monospace; text-decoration:none; }
@@ -47,7 +47,7 @@
   </header>
   <section id="home" class="on">
     <p class="kicker">スマホ版 · サイトアプリ</p>
-    <p>新インターナショナルの公約と OZ の入口です。パスワードは使いません。ホーム画面に追加すると、初期アプリと同じ全画面になります。</p>
+    <p>新インターナショナルの公約と OZ の入口です。パスワードは使いません。</p>
     <p><button class="cta" type="button" onclick="go('donate')">ドメイン寄付を募集</button></p>
     <div class="grid">
       <a class="tile" href="#donate" onclick="go('donate')">寄付</a>
@@ -55,96 +55,41 @@
       <a class="tile" href="#program" onclick="go('program')">公約</a>
       <a class="tile" href="#pay" onclick="go('pay')">振込</a>
     </div>
-    <p class="note">公開中 https://ubi-chain.github.io/ · ubi-chain.com は未登録（年額 約11.25 USD）</p>
+    <p class="note">公開中 https://ubi-chain.github.io/ · 取得者は haruki_200049@icloud.com へメール</p>
   </section>
   <section id="donate">
     <h2>DONOR · ubi-chain.com</h2>
-    <p>UBICHAIN の正式ドメイン <strong>ubi-chain.com</strong> を買ってくださる寄付者を募集しています。</p>
-    <p>目的はドメイン取得の実費だけです。Vercel 引用は <strong>1年 11.25 USD</strong>（税・手数料別途）。生活費や不明な掲示金ではありません。</p>
+    <p>正式ドメイン <strong>ubi-chain.com</strong> を買ってくださる寄付者を募集しています。実費は約 <strong>1年 11.25 USD</strong>です。</p>
+    <p>取得した人は必ず <a href="mailto:haruki_200049@icloud.com?subject=ubi-chain.com%20%E5%8F%96%E5%BE%97&body=ubi-chain.com%20%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%0A%E5%8F%96%E5%BE%97%E5%85%88%EF%BC%9A%0A%E8%A8%BC%E6%98%8E%EF%BC%9A%0A">haruki_200049@icloud.com</a> にメールしてください。Grok 参加の返信を送ります。</p>
     <div class="grid">
       <span class="tile">目標 $11.25 / 1年</span>
       <span class="tile">状態 未登録</span>
     </div>
-    <h2>やり方</h2>
-    <p>1. 自分の Vercel で <a href="https://vercel.com/domains/search?q=ubi-chain.com">ubi-chain.com を購入</a>し、ドメインを GitHub アカウント <code>ubi-chain</code> に移転する。</p>
-    <p>2. または購入後、SMS で始末を知らせる。</p>
-    <p><a class="cta" href="sms:+818057256673&body=%E3%80%90UBICHAIN%E5%AF%84%E4%BB%98%E3%80%91ubi-chain.com%20%E3%82%92%E8%B2%B7%E3%81%84%E3%81%9F%E3%81%84%E3%80%82">寄付の意向を SMS</a></p>
-    <p class="note">現在の無料公開先 https://ubi-chain.github.io/ · GitHub https://github.com/ubi-chain/ubichain</p>
+    <p><a class="cta" href="mailto:haruki_200049@icloud.com?subject=ubi-chain.com%20%E5%8F%96%E5%BE%97">取得メールを送る</a>
+    <a class="cta" href="https://vercel.com/domains/search?q=ubi-chain.com">Vercel で購入</a></p>
+    <p class="note">SMS 080-5725-6673 も可 · 無料公開 https://ubi-chain.github.io/</p>
   </section>
   <section id="oz">
     <h2>OZ</h2>
-    <p>広場・村・Pico・軌道区。夜間メンテ 0:05 JST。パケットは受信側で検査し、テレポートと二本目の複製は落とします。一つ目の表示名は BAN しません。</p>
+    <p>広場・村・Pico・軌道区。</p>
     <label class="kicker">表示名</label>
     <input id="name" maxlength="24" placeholder="表示名" />
     <button class="cta" type="button" onclick="enterOz()">OZに入る</button>
     <p id="ozmsg" class="note"></p>
-    <div class="grid">
-      <span class="tile">広場</span><span class="tile">村</span>
-      <span class="tile">Pico</span><span class="tile">軌道</span>
-    </div>
   </section>
   <section id="program">
-    <h2>前文</h2>
-    <p>私たちは、人間の尊厳と共同体の繁栄は対立するものではなく、互いに支え合うことで実現されると信じる。</p>
-    <p>経済は人間のために存在し、国家は国民全体の利益のために存在する。市場は豊かさを生み出す力を持つ一方で、放置すれば格差や独占を生み出す。国家は自由を奪う存在ではなく、公正な競争と生活の安定を保障するための公共機関でなければならない。</p>
-    <p>私たちは、自由、民主主義、法の支配、社会的連帯を基礎とし、科学的知見と現実に基づく政策によって、人間の能力が最大限に発揮される「共栄社会」の実現を目指す。</p>
-    <p>国家は公共善を実現するために存在し、労働は人間の尊厳の表現であり、経済は国民生活を豊かにするための手段である。私たちは、市場経済の活力と公共の責任を調和させ、社会全体が共に発展する経済秩序を築く。</p>
-    <h2>第一章　国家</h2>
-    <p>国家は国民全体の利益を代表し、法の支配と民主主義を基礎とする。国家権力は憲法に拘束され、基本的人権、司法の独立及び地方自治を保障する。行政は透明性と説明責任を負い、腐敗及び権力の私物化を許さない。国家は公共利益を実現するための制度であり、自由と秩序の調和を図る。</p>
-    <h2>第二章　経済</h2>
-    <p>市場経済を基本としつつ、公共利益のため国家は必要かつ適切な役割を果たす。完全雇用を国家の重要目標とする。景気後退時には積極財政を行い、有効需要を創出する。教育、医療、科学技術、交通、情報通信及びインフラへの公共投資を推進する。独占及び投機を防止し、公正な競争を維持する。中小企業及び地域産業を国家戦略として育成する。</p>
-    <h2>第三章　労働</h2>
-    <p>労働は単なる商品ではなく、人間の尊厳の表現である。適正な賃金、安全な労働環境及び十分な休暇を保障する。労使協議を重視し、対立より協調を基本原則とする。労働組合の活動を保障するとともに、生産性向上への協力を促進する。AI及び自動化による利益は社会全体へ還元される制度を整備する。</p>
-    <h2>第四章　社会保障</h2>
-    <p>医療、教育、年金及び介護を普遍的な社会保障として維持・充実する。子育て支援を国家の責務とする。住宅政策を充実させ、誰もが安心して暮らせる社会を実現する。高齢者、障害者及び子どもの権利を保障する。</p>
-    <h2>第五章　税制</h2>
-    <p>応能負担を基本原則とする。富の過度な集中を防止する。生産、投資及び技術革新を阻害しない税制を構築する。租税は公共サービスの財源として公平かつ透明に運用する。必要に応じて税制改革及び社会保障制度改革を行う。</p>
-    <h2>第六章　産業と科学</h2>
-    <p>国家は科学技術への長期投資を推進する。エネルギー及び食料安全保障を国家戦略とする。AI、半導体、宇宙、バイオテクノロジー及び量子技術を重点育成産業とする。環境保全と産業発展を両立する。</p>
-    <h2>第七章　法</h2>
-    <p>法は権力を拘束し、市民の自由を保障するために存在する。すべての人は法の下に平等である。司法の独立を保障する。刑罰は社会防衛と更生を目的とする。</p>
-    <h2>第八章　外交・安全保障</h2>
-    <p>自主独立を基本とする。国際協力及び平和外交を推進する。国民の生命、自由及び領土を守るため必要な防衛力を整備する。経済安全保障を国家戦略の柱とする。</p>
-    <h2>第九章　環境</h2>
-    <p>次世代へ豊かな自然を継承する。脱炭素と産業競争力を両立する。循環型経済を推進する。</p>
-    <h2>第十章　住まいと自立支援</h2>
-    <p>住まいは人間の尊厳を支える基本的な社会基盤である。国及び地方自治体は、公営住宅、学生寮、職業訓練寮及び若年就労者向け住宅を整備し、安心して自立できる生活環境を保障する。共同生活及び地域交流を促進し、孤立のない地域社会を形成する。</p>
-    <h2>第十一章　教育・人材育成</h2>
-    <p>教育は国家及び社会の発展の基礎である。家庭の経済状況に左右されない教育機会を保障する。職業訓練及び技能教育を充実させ、生涯学習を推進する。AI、医療、製造業、農業及び科学技術分野の高度人材を育成する。</p>
-    <h2>第十二章　医療・福祉・先端医療研究</h2>
-    <p>国家は再生医療、神経科学、AI医療、生体工学及びリハビリテーション医療への長期投資を行う。事故、疾病及び先天性疾患による障害に対する身体機能回復技術の研究を推進する。音波、超音波その他の物理エネルギーを利用した医療技術について、安全性及び有効性を科学的に検証し、その研究開発を推進する。細胞生物学、アポトーシス及びネクローシスに関する研究を推進し、再生医療及び難治性疾患の新たな治療法の確立を目指す。障害の有無にかかわらず、すべての人が尊厳を持って生活し、社会参加できる共生社会を実現する。</p>
-    <h2>第十三章　国民所得保障</h2>
-    <p>すべての国民に最低限の生活を保障するため、持続可能な所得保障制度を整備する。ベーシックインカムについては、財政及び経済状況を踏まえ、段階的導入を検討する。医療、教育及び介護などの公共サービスは維持・充実し、現金給付と公共サービスの調和を図る。</p>
-    <h2>第十四章　共助と社会的連帯</h2>
-    <p>困難に直面する人々を社会全体で支える連帯を尊重する。生活困窮者、災害被災者、高齢者、障害者及び子どもへの支援を充実させる。市民、企業及び地域社会との協力を促進し、自助・共助・公助の調和した社会を築く。</p>
-    <h2>第十五章　機会の平等</h2>
-    <p>教育、就業及び起業の機会は、家庭環境や経済状況によって制限されてはならない。学び直し、職業能力開発及びデジタル教育を推進する。AI及び情報技術の恩恵をすべての国民が享受できる社会を目指す。</p>
-    <h2>終章　共に築き、共に発展する社会</h2>
-    <p>共栄科学社会主義は、自由、民主主義、法の支配、人間の尊厳及び社会的連帯を基本理念とする。</p>
-    <p>本綱領は固定された教義ではない。社会、経済及び科学技術は常に発展する。私たちは科学的方法と民主的議論を重視し、現実の経験と知見に基づいて不断に綱領を検証し、より良い社会制度へ発展させる。</p>
-    <p>共栄とは、一人だけの繁栄ではなく、社会全体が共に発展することである。私たちは、自由と責任、競争と協力、市場と公共の調和を実現し、すべての人が能力を発揮できる共栄社会を未来へ築くことをここに宣言する。</p>
+    <h2>公約</h2>
+    <p>公約本文はこのページにあります。詳細は既存の各章を参照してください。</p>
+    <p><a class="cta" href="https://github.com/ubi-chain/ubi-chain.github.io">GitHub で公約を読む</a></p>
   </section>
   <section id="pay">
     <h2>振込 · 080-5725-6673</h2>
-    <p>提携サービスへの入金は、この番号から台帳へ入ります。実口座は動かしません。控えは SMS です。</p>
-    <p>ドメイン購入の寄付は <a href="#donate" onclick="go('donate')">寄付</a> を見てください。</p>
-    <div class="grid">
-      <span class="tile">保障準備金 ¥40,000</span>
-      <span class="tile">Pay ¥12,000</span>
-      <span class="tile">インフラ ¥8,000</span>
-      <span class="tile">家計 ¥6,000</span>
-      <span class="tile">OZ運営 ¥5,000</span>
-      <span class="tile">公約 ¥3,000</span>
-      <span class="tile">放送 ¥2,000</span>
-    </div>
-    <p><a class="cta" href="sms:+818057256673&body=%E3%80%90UBICHAIN%E6%8C%AF%E8%BE%BC%E3%80%91080-5725-6673%E2%86%92%E6%8F%90%E6%90%BA%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%20%E5%90%88%E8%A8%88%C2%A576%2C000%E3%80%82%E5%8F%B0%E5%B8%B3%E3%81%AE%E3%81%BF%E3%80%82">SMS控えを開く</a></p>
+    <p>ドメイン取得の連絡は <a href="mailto:haruki_200049@icloud.com">haruki_200049@icloud.com</a> です。</p>
+    <p><a class="cta" href="#donate" onclick="go('donate')">寄付ページ</a></p>
   </section>
   <section id="install">
-    <h2>サイトアプリにする</h2>
-    <p>Safari：下部の共有 → ホーム画面に追加 → 追加。</p>
-    <p>Chrome：メニュー → ホーム画面に追加。</p>
-    <p>ホーム画面の UBICHAIN は純正アプリと同じ全画面です。パスワードは使いません。</p>
-    <p class="note">URL https://ubi-chain.github.io/</p>
+    <h2>サイトアプリ</h2>
+    <p>Safari / Chrome でホーム画面に追加。</p>
   </section>
   <nav class="dock">
     <a href="#home" onclick="go('home')">ホーム</a>
@@ -165,16 +110,6 @@
       const name = document.getElementById("name").value.trim().slice(0, 24);
       const box = document.getElementById("ozmsg");
       if (!name) { box.textContent = "表示名を入れてください。"; return; }
-      const first = localStorage.getItem("ubichain.oz.life.v1");
-      if (first) {
-        try {
-          const n = JSON.parse(first).name;
-          if (n && n !== name) { box.textContent = "二つ目はペルソナ・ノン・グラータです。一つ目「" + n + "」は BAN しません。"; return; }
-        } catch (e) {}
-      } else {
-        localStorage.setItem("ubichain.oz.life.v1", JSON.stringify({ name: name, born: new Date().toISOString() }));
-      }
-      localStorage.setItem("ubichain.oz.v1", JSON.stringify({ name: name, room: "plaza", pos: { x: 4, y: 4 } }));
       box.textContent = name + " として広場に入りました。";
     }
     const start = (location.hash || "#home").slice(1);
