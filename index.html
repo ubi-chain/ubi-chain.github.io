@@ -52,6 +52,7 @@
     <div class="grid">
       <a class="tile" href="#oz" onclick="go('oz')">OZ</a>
       <a class="tile" href="#program" onclick="go('program')">公約</a>
+      <a class="tile" href="#pay" onclick="go('pay')">振込</a>
     </div>
     <p class="note">公開ホスト https://ubi-chain.github.io/ · ubi-chain.com は未登録</p>
   </section>
@@ -108,6 +109,20 @@
     <p>本綱領は固定された教義ではない。社会、経済及び科学技術は常に発展する。私たちは科学的方法と民主的議論を重視し、現実の経験と知見に基づいて不断に綱領を検証し、より良い社会制度へ発展させる。</p>
     <p>共栄とは、一人だけの繁栄ではなく、社会全体が共に発展することである。私たちは、自由と責任、競争と協力、市場と公共の調和を実現し、すべての人が能力を発揮できる共栄社会を未来へ築くことをここに宣言する。</p>
   </section>
+  <section id="pay">
+    <h2>振込 · 080-5725-6673</h2>
+    <p>提携サービスへの入金は、この番号から台帳へ入ります。実口座は動かしません。控えは SMS です。</p>
+    <div class="grid">
+      <span class="tile">保障準備金 ¥40,000</span>
+      <span class="tile">Pay ¥12,000</span>
+      <span class="tile">インフラ ¥8,000</span>
+      <span class="tile">家計 ¥6,000</span>
+      <span class="tile">OZ運営 ¥5,000</span>
+      <span class="tile">公約 ¥3,000</span>
+      <span class="tile">放送 ¥2,000</span>
+    </div>
+    <p><a class="cta" href="sms:+818057256673&body=%E3%80%90UBICHAIN%E6%8C%AF%E8%BE%BC%E3%80%91080-5725-6673%E2%86%92%E6%8F%90%E6%90%BA%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%20%E5%90%88%E8%A8%88%C2%A576%2C000%E3%80%82%E5%8F%B0%E5%B8%B3%E3%81%AE%E3%81%BF%E3%80%82">SMS控えを開く</a></p>
+  </section>
   <section id="install">
     <h2>サイトアプリにする</h2>
     <p>Safari：下部の共有 → ホーム画面に追加 → 追加。</p>
@@ -119,6 +134,7 @@
     <a href="#home" onclick="go('home')">ホーム</a>
     <a href="#oz" onclick="go('oz')">OZ</a>
     <a href="#program" onclick="go('program')">公約</a>
+    <a href="#pay" onclick="go('pay')">振込</a>
     <a href="#install" onclick="go('install')">追加</a>
   </nav>
   <script>
@@ -146,7 +162,7 @@
       box.textContent = name + " として広場に入りました。";
     }
     const start = (location.hash || "#home").slice(1);
-    go(["home","oz","program","install"].includes(start) ? start : "home");
+    go(["home","oz","program","pay","install"].includes(start) ? start : "home");
     if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
   </script>
 </body>
