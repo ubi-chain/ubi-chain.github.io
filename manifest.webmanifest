@@ -1,0 +1,16 @@
+{
+  "name": "UBICHAIN",
+  "short_name": "UBICHAIN",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020408",
+  "theme_color": "#020408",
+  "lang": "ja",
+  "description": "新インターナショナル公約。OZ。国民所得保障。",
+  "icons": [
+    { "src": "https://github.com/ubi-chain.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "https://github.com/ubi-chain.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

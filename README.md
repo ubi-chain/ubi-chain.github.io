@@ -1,7 +1,5 @@
-# UBICHAIN
+# UBICHAIN phone PWA
 
-Free hostname for the UBICHAIN PWA.
+https://ubi-chain.github.io/
 
-- Pages: https://ubi-chain.github.io
-- Free origin: `ubichain.is-a.dev` → `cname.vercel-dns.com` (Vercel)
-- Paid apex `ubi-chain.com` is not registered.
+Standalone site-app. Add to Home Screen. No password.
