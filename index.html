@@ -4,37 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>UBICHAIN</title>
-  <meta name="description" content="新インターナショナル公約。OZ。ubi-chain.com 寄付募集。" />
   <meta name="theme-color" content="#020408" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="UBICHAIN" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="https://github.com/ubi-chain.png" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <style>
     :root { --bg:#020408; --fg:#c8e6f0; --dim:#7a9aaa; --muted:#3a6070; --accent:#00d4ff; --border:#0f2535; --surface:#070e16; }
     * { box-sizing: border-box; }
-    html, body { margin:0; background:var(--bg); color:var(--fg); font: 15px/1.55 "Hiragino Sans", "IBM Plex Sans", system-ui, sans-serif; }
+    html, body { margin:0; background:var(--bg); color:var(--fg); font: 15px/1.55 "Hiragino Sans", system-ui, sans-serif; }
     body { min-height:100dvh; padding: calc(12px + env(safe-area-inset-top)) 16px calc(72px + env(safe-area-inset-bottom)); }
     a { color: var(--accent); }
     header { display:flex; align-items:center; gap:10px; padding-bottom:12px; border-bottom:1px solid var(--border); }
-    .mark { width:32px; height:32px; display:grid; place-items:center; background:#000; color:var(--accent); font:700 14px/1 ui-monospace,monospace; border:1px solid color-mix(in srgb, var(--accent) 50%, transparent); border-radius:8px; }
+    .mark { width:32px; height:32px; display:grid; place-items:center; color:var(--accent); font:700 14px/1 ui-monospace,monospace; border:1px solid color-mix(in srgb, var(--accent) 50%, transparent); border-radius:8px; }
     .kicker { font: 10px/1.2 ui-monospace,monospace; letter-spacing:.2em; color:var(--muted); }
     h1 { font-size:20px; margin:2px 0 0; }
     nav.dock { position:fixed; left:0; right:0; bottom:0; display:flex; gap:4px; padding:8px 8px calc(8px + env(safe-area-inset-bottom)); background:var(--surface); border-top:1px solid var(--border); }
-    nav.dock a, nav.dock button { flex:1; height:44px; display:grid; place-items:center; color:var(--dim); text-decoration:none; background:none; border:0; font:10px/1 ui-monospace,monospace; letter-spacing:.12em; }
-    nav.dock a.on, nav.dock button.on { color:var(--accent); }
+    nav.dock a { flex:1; height:44px; display:grid; place-items:center; color:var(--dim); text-decoration:none; font:10px/1 ui-monospace,monospace; }
+    nav.dock a.on { color:var(--accent); }
     section { display:none; padding-top:16px; }
     section.on { display:block; }
     h2 { font: 10px/1.2 ui-monospace,monospace; letter-spacing:.2em; color:var(--accent); margin:22px 0 8px; }
     p { color:var(--dim); margin:0 0 10px; }
-    .cta { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; background:var(--accent); color:var(--bg); text-decoration:none; font-weight:600; font-size:13px; border:0; margin:0 8px 8px 0; }
-    input { width:100%; height:44px; margin:8px 0; padding:0 12px; background:var(--surface); border:1px solid var(--border); color:var(--fg); }
+    .cta { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; background:var(--accent); color:var(--bg); text-decoration:none; font-weight:600; font-size:13px; }
     .grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; }
     .tile { min-height:44px; border:1px solid var(--border); background:var(--surface); color:var(--fg); display:grid; place-items:center; font:11px/1.2 ui-monospace,monospace; text-decoration:none; }
     .note { font:11px/1.5 ui-monospace,monospace; color:var(--muted); }
+    table { width:100%; border-collapse:collapse; font-size:13px; }
+    td,th { border-bottom:1px solid var(--border); padding:8px 4px; text-align:left; }
   </style>
 </head>
 <body>
@@ -46,57 +41,43 @@
     </div>
   </header>
   <section id="home" class="on">
-    <p class="kicker">スマホ版 · サイトアプリ</p>
-    <p>新インターナショナルの公約と OZ の入口です。パスワードは使いません。</p>
-    <p><button class="cta" type="button" onclick="go('donate')">ドメイン寄付を募集</button></p>
+    <p>公約・副管理者番号・機関協議の入口です。</p>
     <div class="grid">
+      <a class="tile" href="#law" onclick="go('law')">法と番号</a>
+      <a class="tile" href="./desk.html">機関デスク</a>
       <a class="tile" href="#donate" onclick="go('donate')">寄付</a>
       <a class="tile" href="#oz" onclick="go('oz')">OZ</a>
-      <a class="tile" href="#program" onclick="go('program')">公約</a>
-      <a class="tile" href="#pay" onclick="go('pay')">振込</a>
     </div>
-    <p class="note">公開中 https://ubi-chain.github.io/ · 取得者は haruki_200049@icloud.com へメール</p>
+    <p class="note">110 等は現行法令の範囲で副管理する。通報の代替ではない。</p>
+  </section>
+  <section id="law">
+    <h2>副管理者番号</h2>
+    <p>例として、各国の重要番号（110 / 911 / 999 / 112 等）を副管理者番号とする。権限はその国の憲法・法令・公的著書の範囲だけ。</p>
+    <table>
+      <tr><th>国</th><th>警察</th><th>救急</th></tr>
+      <tr><td>日本</td><td>110</td><td>119</td></tr>
+      <tr><td>US</td><td>911</td><td>911</td></tr>
+      <tr><td>UK</td><td>999</td><td>999</td></tr>
+      <tr><td>EU</td><td>112</td><td>112</td></tr>
+      <tr><td>한국</td><td>112</td><td>119</td></tr>
+    </table>
+    <h2>警察機構の監視</h2>
+    <p>警察機構に渡すのは、このサービス公開面の乱用監視です。私生活の監聴や、法令を超えた探知ではありません。</p>
+    <p><a class="cta" href="./desk.html">Slack風協議デスク</a></p>
   </section>
   <section id="donate">
-    <h2>DONOR · ubi-chain.com</h2>
-    <p>正式ドメイン <strong>ubi-chain.com</strong> を買ってくださる寄付者を募集しています。実費は約 <strong>1年 11.25 USD</strong>です。</p>
-    <p>取得した人は必ず <a href="mailto:haruki_200049@icloud.com?subject=ubi-chain.com%20%E5%8F%96%E5%BE%97&body=ubi-chain.com%20%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%0A%E5%8F%96%E5%BE%97%E5%85%88%EF%BC%9A%0A%E8%A8%BC%E6%98%8E%EF%BC%9A%0A">haruki_200049@icloud.com</a> にメールしてください。Grok 参加の返信を送ります。</p>
-    <div class="grid">
-      <span class="tile">目標 $11.25 / 1年</span>
-      <span class="tile">状態 未登録</span>
-    </div>
-    <p><a class="cta" href="mailto:haruki_200049@icloud.com?subject=ubi-chain.com%20%E5%8F%96%E5%BE%97">取得メールを送る</a>
-    <a class="cta" href="https://vercel.com/domains/search?q=ubi-chain.com">Vercel で購入</a></p>
-    <p class="note">SMS 080-5725-6673 も可 · 無料公開 https://ubi-chain.github.io/</p>
+    <h2>DONOR</h2>
+    <p>ubi-chain.com 実費約 $11.25 / 年。取得者は <a href="mailto:haruki_200049@icloud.com">haruki_200049@icloud.com</a></p>
   </section>
   <section id="oz">
     <h2>OZ</h2>
     <p>広場・村・Pico・軌道区。</p>
-    <label class="kicker">表示名</label>
-    <input id="name" maxlength="24" placeholder="表示名" />
-    <button class="cta" type="button" onclick="enterOz()">OZに入る</button>
-    <p id="ozmsg" class="note"></p>
-  </section>
-  <section id="program">
-    <h2>公約</h2>
-    <p>公約本文はこのページにあります。詳細は既存の各章を参照してください。</p>
-    <p><a class="cta" href="https://github.com/ubi-chain/ubi-chain.github.io">GitHub で公約を読む</a></p>
-  </section>
-  <section id="pay">
-    <h2>振込 · 080-5725-6673</h2>
-    <p>ドメイン取得の連絡は <a href="mailto:haruki_200049@icloud.com">haruki_200049@icloud.com</a> です。</p>
-    <p><a class="cta" href="#donate" onclick="go('donate')">寄付ページ</a></p>
-  </section>
-  <section id="install">
-    <h2>サイトアプリ</h2>
-    <p>Safari / Chrome でホーム画面に追加。</p>
   </section>
   <nav class="dock">
     <a href="#home" onclick="go('home')">ホーム</a>
+    <a href="#law" onclick="go('law')">法</a>
+    <a href="./desk.html">デスク</a>
     <a href="#donate" onclick="go('donate')">寄付</a>
-    <a href="#oz" onclick="go('oz')">OZ</a>
-    <a href="#program" onclick="go('program')">公約</a>
-    <a href="#pay" onclick="go('pay')">振込</a>
   </nav>
   <script>
     function go(id) {
@@ -106,15 +87,8 @@
       window.scrollTo(0, 0);
       return false;
     }
-    function enterOz() {
-      const name = document.getElementById("name").value.trim().slice(0, 24);
-      const box = document.getElementById("ozmsg");
-      if (!name) { box.textContent = "表示名を入れてください。"; return; }
-      box.textContent = name + " として広場に入りました。";
-    }
     const start = (location.hash || "#home").slice(1);
-    go(["home","donate","oz","program","pay","install"].includes(start) ? start : "home");
-    if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
+    go(["home","law","donate","oz"].includes(start) ? start : "home");
   </script>
 </body>
 </html>
