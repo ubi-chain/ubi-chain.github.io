@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>組織登録 · UBICHAIN</title>
+<style>
+:root{--bg:#020408;--fg:#c8e6f0;--dim:#7a9aaa;--accent:#00d4ff;--border:#0f2535;--s:#070e16}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 Hiragino Sans,system-ui;padding:16px 16px 80px}
+a{color:var(--accent)}h1{font-size:20px}h2{font:11px/1.2 ui-monospace,monospace;letter-spacing:.16em;color:var(--accent)}
+input,select{width:100%;height:40px;margin:6px 0;background:var(--s);border:1px solid var(--border);color:var(--fg);padding:0 10px}
+button,.cta{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;background:var(--accent);color:#020408;border:0;font-weight:700;text-decoration:none}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px solid var(--border);padding:8px 4px;text-align:left}
+.note{color:#3a6070;font:12px/1.5 ui-monospace,monospace}
+</style></head>
+<body>
+<p><a href="./index.html">← UBICHAIN</a></p>
+<h1>公社・公司・NPO 登録</h1>
+<p>株式コード、法人番号、NPO認証番号で登録する。人事はインターナショナル倫理委員会が統括する。国の登記代行ではない。</p>
+<p class="note">日本の最新番号は <a href="https://itp.ne.jp/">iタウンページ</a>（紙版は2026-03終了）と <a href="https://www.houjin-bangou.nta.go.jp/">法人番号公表</a>。各国は次の資源。</p>
+<p class="note"><a href="https://www.sec.gov/edgar">US EDGAR</a> · <a href="https://find-and-update.company-information.service.gov.uk/">UK Companies House</a> · <a href="https://www.npo-homepage.go.jp/npoportal/">内閣府 NPO</a></p>
+<table>
+<tr><th>種</th><th>名</th><th>番号</th></tr>
+<tr><td>会社</td><td>NTT</td><td>証 9432 / 法人 7010001065142</td></tr>
+<tr><td>会社</td><td>NTT東日本</td><td>法人 8011101028104</td></tr>
+<tr><td>会社</td><td>KDDI</td><td>証 9433</td></tr>
+<tr><td>会社</td><td>軟銀G</td><td>証 9984</td></tr>
+<tr><td>会社</td><td>軟銀</td><td>証 9434</td></tr>
+</table>
+<h2>委員会への申請（この端末）</h2>
+<form id="f">
+<input id="kind" placeholder="公社 / 会社 / NPO" />
+<input id="name" placeholder="法定名稱" />
+<input id="num" placeholder="法人番号・証券コード・NPO番号" />
+<select id="size"><option>中小</option><option>大手</option></select>
+<button>登録申請を残す</button>
+</form>
+<p id="out" class="note"></p>
+<p><a class="cta" href="./economy.html">中小×大手 協議</a> <a class="cta" href="./relief.html">携帯救済</a></p>
+<script>
+document.getElementById('f').onsubmit=e=>{
+e.preventDefault();
+const row={kind:kind.value,name:name.value,num:num.value,size:size.value,t:new Date().toISOString()};
+if(!row.name||!row.num){out.textContent='名称と番号が必要';return;}
+const k='ubichain.orgs'; const a=JSON.parse(localStorage.getItem(k)||'[]'); a.push(row);
+localStorage.setItem(k,JSON.stringify(a.slice(-50)));
+out.textContent=row.name+' を委員会待ちに残した。公的番号の確認後に人事統括の対象となる。';
+};
+</script>
+</body></html>

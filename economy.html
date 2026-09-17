@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>中小×大手 協議</title>
+<style>
+:root{--bg:#0b1016;--fg:#d7e6ee;--dim:#7a9aaa;--accent:#00d4ff;--border:#1a2b38;--m:#101820}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 Hiragino Sans,system-ui;height:100dvh;display:flex;flex-direction:column}
+header,form{padding:10px 14px;border-bottom:1px solid var(--border)}header{border-bottom:1px solid var(--border)}
+a{color:var(--accent)}#log{flex:1;overflow:auto;padding:12px} .m{background:var(--m);border:1px solid var(--border);margin:0 0 8px;padding:8px 10px;border-radius:8px}
+form{display:flex;gap:8px;border-top:1px solid var(--border);border-bottom:0}input{flex:1;height:40px;background:#0a1218;border:1px solid var(--border);color:var(--fg);padding:0 10px}button{background:var(--accent);border:0;font-weight:700}
+.note{color:var(--dim);font-size:12px;padding:0 14px}
+</style></head>
+<body>
+<header><a href="./index.html">←</a> 中小が大手と協議し、効率的計画経済</header>
+<p class="note">試作デスク。統制経済の法令化ではない。番号登録済の組織が需給・在庫・人材を調整する。</p>
+<div id="log"></div>
+<form id="f"><input id="who" placeholder="企業名 / 証券or法人番号"/><input id="text" placeholder="協議内容"/><button>送信</button></form>
+<script>
+const K='ubichain.econ';
+const seed=[['憲章','中小と大手は番号で同席する。独占は監視対象。']];
+function load(){try{return JSON.parse(localStorage.getItem(K))||seed}catch(e){return seed}}
+function render(){log.innerHTML=load().map(([w,t])=>`<div class="m"><b>${w}</b><div>${t}</div></div>`).join('')}
+f.onsubmit=e=>{e.preventDefault();const w=who.value.trim()||'未記名';const t=text.value.trim();if(!t)return;const a=load();a.push([w,t]);localStorage.setItem(K,JSON.stringify(a.slice(-80)));text.value='';render()};
+render();
+</script>
+</body></html>
