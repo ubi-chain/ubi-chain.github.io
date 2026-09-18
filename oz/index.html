@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>オズ — UBICHAIN</title>
+  <meta name="description" content="オズはオリジナルのソーシャルロビー。パスワードなし。17ワールド / 15 cap。" />
+  <style>
+    :root {
+      --peach: #ffd8c2;
+      --cream: #fff6ec;
+      --stage: #fffdf9;
+      --ink: #5a3a3a;
+      --muted: #9a6f6f;
+      --pink: #ff7aa8;
+      --pink-deep: #f25d93;
+      --blue: #6ea8ff;
+      --blue-deep: #4d8df0;
+      --shadow: 0 18px 50px rgba(180, 90, 90, .18);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #fff 0%, transparent 55%),
+        linear-gradient(180deg, var(--peach) 0%, var(--cream) 55%, #ffe9d6 100%);
+      overflow: hidden;
+    }
+    .sticker { position: fixed; font-size: 22px; opacity: .55; pointer-events: none; }
+    .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px 16px 40px; }
+    .stage {
+      width: min(440px, 100%);
+      background: var(--stage);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 22px 22px 26px;
+      border: 2px solid #fff;
+    }
+    .toprow { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .brand { font-weight: 800; letter-spacing: .12em; font-size: 13px; color: #c45d7a; }
+    .badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-size: 11px; font-weight: 700; background: #fff3f7; color: #d44976;
+      border: 1px solid #ffd0e0; border-radius: 999px; padding: 4px 9px;
+    }
+    .org { margin-top: 8px; font-size: 11px; color: var(--muted); }
+    .bubble {
+      margin: 16px auto 8px; background: #fff; border: 2px solid #ffd5e3;
+      border-radius: 18px 18px 18px 6px; padding: 10px 14px; width: fit-content;
+      font-size: 13px; color: #8a4b5d; position: relative;
+    }
+    .avatar-stage {
+      height: 168px; display: grid; place-items: center;
+      background: linear-gradient(#fff8f2, #ffe9dc);
+      border-radius: 22px; margin: 8px 0 14px; border: 1px dashed #ffd0c0;
+    }
+    .avatar { width: 86px; height: 148px; position: relative; }
+    .head { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto; background: #f3c7a6; position: relative; z-index: 2; }
+    .eye { position: absolute; top: 24px; width: 7px; height: 9px; background: #3a2a28; border-radius: 50%; }
+    .eye.l { left: 14px; } .eye.r { right: 14px; }
+    .hair { position: absolute; left: 50%; top: -6px; transform: translateX(-50%); width: 58px; height: 28px; border-radius: 20px 20px 8px 8px; z-index: 3; }
+    .body { width: 48px; height: 46px; margin: -4px auto 0; border-radius: 16px 16px 10px 10px; }
+    .leg { position: absolute; bottom: 8px; width: 14px; height: 28px; border-radius: 8px; background: #6b6f86; }
+    .leg.l { left: 26px; } .leg.r { right: 26px; }
+    .shoe { position: absolute; bottom: 2px; width: 18px; height: 8px; border-radius: 6px; background: #fff; border: 1px solid #e7d7d0; }
+    .shoe.l { left: 24px; } .shoe.r { right: 24px; }
+    .male .hair { background: #3d4c6b; }
+    .male .body { background: var(--blue); }
+    .female .hair { background: #f2b3c9; width: 64px; }
+    .female .body { background: var(--pink); }
+    .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .chip { height: 44px; border-radius: 999px; border: 2px solid #f0d5d5; background: #fff; font-weight: 700; cursor: pointer; }
+    .chip.on-m { background: var(--blue); color: #fff; border-color: var(--blue-deep); }
+    .chip.on-f { background: var(--pink); color: #fff; border-color: var(--pink-deep); }
+    input[type=text] { width: 100%; height: 48px; border-radius: 999px; border: 2px solid #f3d0d6; padding: 0 18px; font-size: 15px; }
+    .cta { margin-top: 12px; width: 100%; height: 54px; border: 0; border-radius: 999px; background: linear-gradient(180deg, #ff92b6, var(--pink-deep)); color: #fff; font-size: 18px; font-weight: 800; cursor: pointer; }
+    .cta:disabled { opacity: .45; }
+    .hint { text-align: center; margin-top: 10px; font-size: 11px; color: var(--muted); }
+    .gate, .world { position: fixed; inset: 0; display: none; z-index: 20; }
+    .gate.on, .world.on { display: grid; }
+    .gate { place-items: center; background: #1a1420; color: #ffe8ef; }
+    .world { grid-template-rows: auto 1fr auto; background: #9ad7ef; }
+    .wbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: rgba(255,255,255,.86); }
+    .plaza { position: relative; overflow: hidden; background: linear-gradient(#8fd0ea, #bfe9c9 42%, #8fce7a 43%, #7ec46c 100%); }
+    .iso { position: absolute; left: 50%; top: 46%; width: 720px; height: 420px; transform: translate(-50%, -50%); }
+    .tile { position: absolute; width: 72px; height: 36px; background: #f4d7b0; border: 1px solid rgba(180,120,80,.25); transform: rotateX(60deg) rotateZ(-45deg); }
+    .npc, .me { position: absolute; width: 28px; height: 48px; transform: translate(-50%, -100%); }
+    .npc .h, .me .h { width: 22px; height: 22px; border-radius: 50%; margin: 0 auto; background: #f3c7a6; }
+    .npc .b, .me .b { width: 20px; height: 18px; margin: 0 auto; border-radius: 6px; }
+    .nametag { position: absolute; left: 50%; top: -16px; transform: translateX(-50%); font-size: 10px; background: #fff; border-radius: 8px; padding: 1px 6px; white-space: nowrap; }
+    .rooms { display: flex; gap: 8px; overflow: auto; padding: 10px 12px; background: #fff7f0; }
+    .room { flex: 0 0 auto; border: 0; border-radius: 16px; padding: 8px 12px; background: #fff; color: #7a4450; font-weight: 700; cursor: pointer; }
+    .room.on { background: var(--pink); color: #fff; }
+    .chat { position: absolute; left: 12px; bottom: 12px; right: 12px; display: flex; gap: 8px; }
+    .chat input { flex: 1; height: 40px; border-radius: 999px; border: 0; padding: 0 14px; }
+    .say { border: 0; border-radius: 999px; background: var(--pink); color: #fff; font-weight: 700; padding: 0 14px; }
+    .speech { position: absolute; transform: translate(-50%, -130%); background: #fff; border-radius: 12px; padding: 4px 8px; font-size: 11px; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="sticker" style="left:18px;top:18px">★</div>
+  <div class="sticker" style="right:24px;top:46px">♥</div>
+  <div class="wrap" id="lobby">
+    <section class="stage">
+      <div class="toprow">
+        <div class="brand">オズ</div>
+        <div class="badges"><span class="badge">17ワールド</span><span class="badge">15 cap</span></div>
+      </div>
+      <div class="org">国際労働者協会 · /oz</div>
+      <div class="bubble">名前を入れてワールドへ</div>
+      <div class="avatar-stage">
+        <div id="avatar" class="avatar male">
+          <div class="hair"></div>
+          <div class="head"><i class="eye l"></i><i class="eye r"></i></div>
+          <div class="body"></div>
+          <div class="leg l"></div><div class="leg r"></div>
+          <div class="shoe l"></div><div class="shoe r"></div>
+        </div>
+      </div>
+      <div class="chips">
+        <button type="button" class="chip on-m" id="chipM">男性 · 青</button>
+        <button type="button" class="chip" id="chipF">女性 · ピンク</button>
+      </div>
+      <input id="name" type="text" maxlength="16" placeholder="表示名" />
+      <button class="cta" id="enter" disabled>オズに入る</button>
+      <div class="hint">パスワードはありません。コードIDと /oz はそのままです。</div>
+    </section>
+  </div>
+  <div class="gate" id="gate">
+    <div style="text-align:center">
+      <div style="font-size:28px;font-weight:800">メンテナンス中</div>
+      <div style="margin-top:10px;opacity:.8">再開目安 05:00 JST</div>
+    </div>
+  </div>
+  <div class="world" id="world">
+    <div class="wbar"><strong>オズ</strong><span id="who"></span><span class="badge">17ワールド</span></div>
+    <div class="plaza" id="plaza">
+      <div class="iso" id="iso"></div>
+      <div class="chat"><input id="chatIn" maxlength="40" placeholder="あいさつ" /><button class="say" id="say">話す</button></div>
+    </div>
+    <div class="rooms" id="rooms"></div>
+  </div>
+  <script>
+    const WORLDS=[["plaza","広場"],["yoyogi","代々木"],["shibuya","渋谷"],["asakusa","浅草"],["village","村"],["pico","Pico"],["parlor","遊戯"],["study","書庫"],["kyoto","京都"],["osaka","大阪"],["sapporo","札幌"],["okinawa","沖縄"],["kanazawa","金沢"],["home","マイルーム"],["orbit","軌道"],["mars","火星"],["outer","外縁"]];
+    const KEY="ubichain_maint_bypass";
+    const params=new URLSearchParams(location.search);
+    if(params.get("maint_bypass")==="1") localStorage.setItem(KEY,"1");
+    if(params.get("maint_bypass")==="0") localStorage.removeItem(KEY);
+    function inMaintWindow(d=new Date()){
+      const parts=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Tokyo",hour:"2-digit",hourCycle:"h23"}).formatToParts(d);
+      const hh=+parts.find(p=>p.type==="hour").value;
+      return hh>=21||hh<5;
+    }
+    function applyGate(){ document.getElementById("gate").classList.toggle("on", inMaintWindow() && localStorage.getItem(KEY)!=="1"); }
+    applyGate(); setInterval(applyGate,15000);
+    let sex="male";
+    const avatar=document.getElementById("avatar");
+    const nameEl=document.getElementById("name");
+    const enter=document.getElementById("enter");
+    document.getElementById("chipM").onclick=()=>{sex="male";avatar.className="avatar male";chipM.className="chip on-m";chipF.className="chip";};
+    document.getElementById("chipF").onclick=()=>{sex="female";avatar.className="avatar female";chipF.className="chip on-f";chipM.className="chip";};
+    nameEl.addEventListener("input",()=>{enter.disabled=nameEl.value.trim().length<1;});
+    const iso=document.getElementById("iso");
+    for(let r=0;r<7;r++) for(let c=0;c<9;c++){
+      const t=document.createElement("div"); t.className="tile";
+      t.style.left=((c-r)*36+320)+"px"; t.style.top=((c+r)*18+40)+"px"; iso.appendChild(t);
+    }
+    const rooms=document.getElementById("rooms");
+    WORLDS.forEach(([id,label],i)=>{ const b=document.createElement("button"); b.className="room"+(i?"":" on"); b.textContent=label; b.onclick=()=>{[...rooms.children].forEach(x=>x.classList.remove("on")); b.classList.add("on");}; rooms.appendChild(b); });
+    const plaza=document.getElementById("plaza");
+    [["ハル",38,52,"#6ea8ff"],["ミオ",58,46,"#ff7aa8"],["ソラ",46,64,"#7ad0a5"]].forEach(([n,x,y,c])=>{
+      const el=document.createElement("div"); el.className="npc"; el.style.left=x+"%"; el.style.top=y+"%";
+      el.innerHTML=`<div class="nametag">${n}</div><div class="h"></div><div class="b" style="background:${c}"></div>`; plaza.appendChild(el);
+    });
+    const me=document.createElement("div"); me.className="me"; me.style.left="50%"; me.style.top="60%"; plaza.appendChild(me);
+    let mePos={x:50,y:60};
+    function renderMe(name){ me.innerHTML=`<div class="nametag">${name}</div><div class="h"></div><div class="b" style="background:${sex==="male"?"#6ea8ff":"#ff7aa8"}"></div>`; }
+    enter.onclick=()=>{ const name=nameEl.value.trim(); if(!name) return; lobby.style.display="none"; world.classList.add("on"); who.textContent=name; renderMe(name); };
+    window.addEventListener("keydown",e=>{
+      if(!world.classList.contains("on")||e.target.matches("input")) return;
+      if(e.key==="ArrowLeft"||e.key==="a") mePos.x-=2.2;
+      if(e.key==="ArrowRight"||e.key==="d") mePos.x+=2.2;
+      if(e.key==="ArrowUp"||e.key==="w") mePos.y-=2.2;
+      if(e.key==="ArrowDown"||e.key==="s") mePos.y+=2.2;
+      mePos.x=Math.min(88,Math.max(12,mePos.x)); mePos.y=Math.min(82,Math.max(38,mePos.y));
+      me.style.left=mePos.x+"%"; me.style.top=mePos.y+"%";
+    });
+    say.onclick=()=>{ const t=chatIn.value.trim(); if(!t) return; chatIn.value=""; const s=document.createElement("div"); s.className="speech"; s.textContent=t; s.style.left=me.style.left; s.style.top=me.style.top; plaza.appendChild(s); setTimeout(()=>s.remove(),2400); };
+  </script>
+</body>
+</html>
